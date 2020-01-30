@@ -1,0 +1,13 @@
+#! /bin/sh
+
+SRC_IF=wlan0
+AP_IF=wlan1
+
+iptables -w -I INPUT -p udp -m udp --dport 67 -j ACCEPT
+iptables -w -I INPUT -p tcp -m tcp --dport 53 -j ACCEPT
+iptables -w -I INPUT -p udp -m udp --dport 53 -j ACCEPT
+iptables -t nat -A POSTROUTING -o $SRC_IF -j MASQUERADE
+iptables -A FORWARD -i $SRC_IF -o $AP_IF -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i $AP_IF -o $SRC_IF -j ACCEPT
+
+exit 0

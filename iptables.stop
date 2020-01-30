@@ -1,0 +1,18 @@
+#!/bin/sh
+echo "iptables reset..."
+IPT="/sbin/iptables"
+
+## Failsafe - die if /sbin/iptables not found
+[ ! -x "$IPT" ] && { echo "$0: \"${IPT}\" command not found."; exit 1; }
+
+$IPT -P INPUT ACCEPT
+$IPT -P FORWARD ACCEPT
+$IPT -P OUTPUT ACCEPT
+$IPT -F
+$IPT -X
+$IPT -t nat -F
+$IPT -t nat -X
+$IPT -t mangle -F
+$IPT -t mangle -X
+$IPT -t raw -F
+$IPT -t raw -X
