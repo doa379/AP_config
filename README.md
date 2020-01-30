@@ -11,12 +11,12 @@ The source network interface is considered to be wlan0. In this
 case Hostapd is not configured to use a bridge as it is normally 
 done. Instead, network traffic is rerouted from the source interface
 to the destination interface (wlan1) using iptables.
-DNS access is provided by OpenDNS (on port 53). DHCP access is 
-on port 67 locally.
+DNS access is provided to OpenDNS (on port 53). DHCP access is 
+on port 67 with respect to the LAN.
 
 I have successfully used this system on a LAN as a means to 
-transfer large amounts of data within a cluster of systems. The 
-performance and reliability of the system is excellent.
+transfer large amounts of data within a cluster of systems wirelessly. 
+The performance and reliability of the system is excellent.
 
 The network interface file creates a network on 172.24.1.1.
 On the server UFW should be instructed to allow to Anywhere from 
