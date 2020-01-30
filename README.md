@@ -19,5 +19,8 @@ transfer large amounts of data within a cluster of systems. The
 performance and reliability of the system is excellent.
 
 The network interface file creates a network on 172.24.1.1.
-UFW should be instructed to allow to Anywhere from subnet 
-172.24.1.48/29.
+On the server UFW should be instructed to allow to Anywhere from 
+subnet 172.24.1.48/29.
+
+Likewise on the client(s) UFW should be allowed to Anywhere from 
+172.24.1.1.
