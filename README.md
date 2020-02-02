@@ -24,3 +24,10 @@ subnet 172.24.1.48/29.
 
 Likewise on the client(s) UFW should be allowed to Anywhere from 
 172.24.1.1.
+
+Make sure the line is uncommented in /etc/sysctl.conf:
+
+net.ipv4.ip_forward=1
+
+IP packet forwarding is a feature provided by the kernel whereas
+the bridge approach is done through the userspace.
